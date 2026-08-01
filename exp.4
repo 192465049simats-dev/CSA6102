@@ -1,0 +1,67 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNSAHEcyDlT/arEG23f134R",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465049simats-dev/CSA6102/blob/main/exp.4\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "eBN_pPWjfq0g",
+        "outputId": "0bd00dee-3bab-4723-8e41-5d05cac5b85a"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Phishing\n"
+          ]
+        }
+      ],
+      "source": [
+        "def classify_incident(description):\n",
+        "    categories = {\n",
+        "        'Phishing': ['fake email', 'login link', 'credential'],\n",
+        "        'Ransomware': ['encrypted files', 'ransom note', 'bitcoin'],\n",
+        "        'Identity Theft': ['stolen identity', 'aadhaar', 'pan card']\n",
+        "    }\n",
+        "    description = description.lower()\n",
+        "    for category, keywords in categories.items():\n",
+        "        for word in keywords:\n",
+        "            if word in description:\n",
+        "                return category\n",
+        "    return 'Unclassified'\n",
+        "\n",
+        "result = classify_incident('Victim received a fake email with a login link')\n",
+        "print(result)"
+      ]
+    }
+  ]
+}
